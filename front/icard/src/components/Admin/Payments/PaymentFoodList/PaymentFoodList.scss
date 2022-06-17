@@ -1,0 +1,13 @@
+.payment-food-list {
+    &__food {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-bottom: 10px !important;
+        
+        .ui.image {
+            margin-right: 30px !important;
+        }
+    }
+}
