@@ -41,7 +41,6 @@ THIRD_PARTY_APPS = (
     "rest_framework",
     "drf_yasg",
     "corsheaders",
-    "rest_framework_simplejwt.token_blacklist",
     "django_filters",
     "djoser",
 )
@@ -110,7 +109,7 @@ REST_FRAMEWORK = {
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = "es"
+LANGUAGE_CODE = "es-mx"
 
 TIME_ZONE = "America/Guayaquil"
 
@@ -165,6 +164,7 @@ DJOSER = {
     "SERIALIZERS": {
         "user_create": "applications.users.serializers.UserCreateSerializer",
         "user": "applications.users.serializers.UserCreateSerializer",
+        "current_user": "applications.users.serializers.UserCreateSerializer",
         "user_delete": "djoser.serializers.UserDeleteSerializer",
     },
 }

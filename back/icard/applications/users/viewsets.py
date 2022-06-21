@@ -1,15 +1,14 @@
 from django.contrib.auth.hashers import make_password
 
 from rest_framework import viewsets
-from rest_framework.permissions import IsAdminUser, AllowAny
+from rest_framework.permissions import IsAdminUser
 
 from .models import User
 from .serializers import UserSerializer
 
 # CRUD de usuarios
 class UserAPIViewSet(viewsets.ModelViewSet):
-
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]
     serializer_class = UserSerializer
     queryset = User.objects.all()
 

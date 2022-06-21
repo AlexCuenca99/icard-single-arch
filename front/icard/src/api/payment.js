@@ -69,3 +69,26 @@ export async function getPaymentsApi() {
 		throw error;
 	}
 }
+
+export async function saveStripeInfoApi(data) {
+	try {
+		const url = `${BASE_API}/stripe/save-stripe-info/`;
+
+		const params = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		};
+
+		const response = await fetch(url, params);
+
+		console.log(response);
+		if (response.status !== 200) {
+			throw new Error('No se ha podido procesar el pago');
+		}
+	} catch (error) {
+		throw error;
+	}
+}

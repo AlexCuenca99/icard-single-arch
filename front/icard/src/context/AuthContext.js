@@ -50,6 +50,7 @@ export function AuthProvider(props) {
 	if (auth === undefined) {
 		return null;
 	}
+
 	return (
 		<AuthContext.Provider value={valueContext}>
 			{children}

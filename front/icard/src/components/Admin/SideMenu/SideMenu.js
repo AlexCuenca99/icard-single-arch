@@ -55,7 +55,7 @@ function MenuLeft(props) {
 			</Menu.Item>
 
 			{/* Quitar administración de usuarios a los no administradores */}
-			{auth.me.data?.is_staff && (
+			{auth.me?.is_staff && (
 				<Menu.Item
 					as={Link}
 					to={'/admin/usuarios'}

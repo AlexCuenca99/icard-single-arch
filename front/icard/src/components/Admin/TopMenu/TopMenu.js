@@ -11,11 +11,11 @@ export function TopMenu() {
 
 	// Verificar si tiene nombre para mostrarlo en el menu
 	const renderName = () => {
-		if (auth.me.data?.first_name && auth.me.data?.last_name) {
-			return `${auth.me.data.first_name} ${auth.me.data.last_name}`;
+		if (auth.me?.first_name && auth.me?.last_name) {
+			return `${auth.me.first_name} ${auth.me.last_name}`;
 		}
 
-		return auth.me.data?.email;
+		return auth.me?.email;
 	};
 	return (
 		<Menu fixed="top" className="top-menu-admin">

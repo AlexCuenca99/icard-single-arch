@@ -1,4 +1,4 @@
-import { AdminLayout, BasicLayout, CommonLayout } from '../layouts';
+import { AdminLayout, CommonLayout } from '../layouts';
 import {
 	OrdersAdmin,
 	UsersAdmin,
@@ -7,20 +7,14 @@ import {
 	TableAdmin,
 	TableDetailsAdmin,
 	PaymentsHistory,
-
-	// Auth
-	SignUpAdmin,
-	ResetPasswordAdmin,
-	ResetPasswordConfirmAdmin,
-	ActivateAdmin,
 } from '../pages/Admin';
-import { Home } from '../pages/Common';
+import { Landing } from '../pages/Common';
 
 const routesAdmin = [
 	{
 		path: '/',
-		layout: BasicLayout,
-		component: Home,
+		layout: CommonLayout,
+		component: Landing,
 	},
 	{
 		path: '/signup',

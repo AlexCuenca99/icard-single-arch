@@ -14,3 +14,4 @@ export * from './Tables';
 export * from './TableDetails';
 export * from './Orders';
 export * from './Payments';
+export * from './CheckoutForm';

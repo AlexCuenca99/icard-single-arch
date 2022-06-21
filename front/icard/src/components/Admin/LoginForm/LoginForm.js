@@ -16,12 +16,10 @@ export function LoginForm() {
 		onSubmit: async (formValue) => {
 			try {
 				const response = await loginApi(formValue);
-				const { access } = response.tokens;
+				const { access } = response;
+				console.log(access);
 				login(access);
-				// console.log(access);
 			} catch (error) {
-				console.log('ERROR');
-				console.log(error);
 				toast.error(error.message);
 			}
 		},

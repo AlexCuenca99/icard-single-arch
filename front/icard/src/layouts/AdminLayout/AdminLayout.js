@@ -24,9 +24,12 @@ export function AdminLayout(props) {
 
 	console.log(currentRoute);
 	// Devolver a pantalla de login
+	console.log(!auth);
 	if (!auth) {
 		switch (currentRoute.path) {
 			case '/admin':
+				return <AdminLogin />;
+			case '/admin/usuarios':
 				return <AdminLogin />;
 			case '/signup':
 				return <SignUpAdmin />;
