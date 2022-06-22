@@ -4,8 +4,9 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { getOrdersByTableApi } from '../../../../api/orders';
 import { ORDER_STATUS } from '../../../../utils/constants';
-import { Label, Button, Icon, Checkbox } from 'semantic-ui-react';
+import { Label } from 'semantic-ui-react';
 import { ReactComponent as IconTable } from '../../../../assets/table.svg';
+import { ReactComponent as IconTable2 } from '../../../../assets/svg/table-2.svg';
 import { usePayment } from '../../../../hooks';
 import './TableAdmin.scss';
 
@@ -52,17 +53,14 @@ export function TableAdmin(props) {
 
 	return (
 		<Link className="table-admin" to={`/admin/mesa/${table.id}`}>
-			{size(orders) > 0 ? (
-				<Label circular color="orange">
-					{size(orders)}
-				</Label>
-			) : null}
+			{size(orders) > 0 ? <Label circular>{size(orders)}</Label> : null}
 
 			{pendingPayment && (
-				<Label circular color="orange">
+				<Label circular color="yellow">
 					Cuenta
 				</Label>
 			)}
+			<p>Mesa {table.number}</p>
 			<IconTable
 				className={classnames({
 					pending: size(orders) > 0,
@@ -70,7 +68,21 @@ export function TableAdmin(props) {
 					'pending-payment': pendingPayment,
 				})}
 			/>
-			<p>Mesa {table.number}</p>
+			<p
+				className={classnames({
+					pending: size(orders) > 0,
+					occupied: tableOccupied,
+					'pending-payment': pendingPayment,
+				})}
+			>
+				{size(orders) > 0
+					? 'Pendiente'
+					: pendingPayment
+					? 'Cuenta Pendiente'
+					: tableOccupied
+					? 'Ocupada'
+					: 'Disponible'}
+			</p>
 		</Link>
 	);
 }

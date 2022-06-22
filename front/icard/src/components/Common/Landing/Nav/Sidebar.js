@@ -1,22 +1,23 @@
 import React from 'react';
+import { Image } from 'semantic-ui-react';
 import styled from 'styled-components';
 import { Link } from 'react-scroll';
 // Assets
 import CloseIcon from '../../../../assets/svg/CloseIcon';
-import LogoIcon from '../../../../assets/svg/Logo';
+import LogoIcon from '../../../../assets/img/logos/my-icard-dark.png';
 
 export function Sidebar({ sidebarOpen, toggleSidebar }) {
 	return (
 		<Wrapper className="animate darkBg" sidebarOpen={sidebarOpen}>
 			<SidebarHeader className="flexSpaceCenter">
 				<div className="flexNullCenter">
-					<LogoIcon />
-					<h1
+					<Image src={LogoIcon} size="tiny" />
+					{/* <h1
 						className="whiteColor font20"
 						style={{ marginLeft: '15px' }}
 					>
 						fanatic
-					</h1>
+					</h1> */}
 				</div>
 				<CloseBtn
 					onClick={() => toggleSidebar(!sidebarOpen)}
@@ -38,7 +39,7 @@ export function Sidebar({ sidebarOpen, toggleSidebar }) {
 						smooth={true}
 						offset={-60}
 					>
-						Home
+						Inicio
 					</Link>
 				</li>
 				<li className="semiBold font15 pointer">
@@ -52,21 +53,7 @@ export function Sidebar({ sidebarOpen, toggleSidebar }) {
 						smooth={true}
 						offset={-60}
 					>
-						Services
-					</Link>
-				</li>
-				<li className="semiBold font15 pointer">
-					<Link
-						onClick={() => toggleSidebar(!sidebarOpen)}
-						activeClass="active"
-						className="whiteColor"
-						style={{ padding: '10px 15px' }}
-						to="projects"
-						spy={true}
-						smooth={true}
-						offset={-60}
-					>
-						Projects
+						Servicios
 					</Link>
 				</li>
 				<li className="semiBold font15 pointer">
@@ -94,7 +81,7 @@ export function Sidebar({ sidebarOpen, toggleSidebar }) {
 						smooth={true}
 						offset={-60}
 					>
-						Pricing
+						Precios
 					</Link>
 				</li>
 				<li className="semiBold font15 pointer">
@@ -108,27 +95,27 @@ export function Sidebar({ sidebarOpen, toggleSidebar }) {
 						smooth={true}
 						offset={-60}
 					>
-						Contact
+						Contacto
 					</Link>
 				</li>
 			</UlStyle>
 			<UlStyle className="flexSpaceCenter">
 				<li className="semiBold font15 pointer">
 					<a
-						href="/"
+						href="/admin"
 						style={{ padding: '10px 30px 10px 0' }}
 						className="whiteColor"
 					>
-						Log in
+						Ir al administrador
 					</a>
 				</li>
 				<li className="semiBold font15 pointer flexCenter">
 					<a
-						href="/"
+						href="/signup"
 						className="radius8 lightBg"
 						style={{ padding: '10px 15px' }}
 					>
-						Get Started
+						Probar ahora
 					</a>
 				</li>
 			</UlStyle>

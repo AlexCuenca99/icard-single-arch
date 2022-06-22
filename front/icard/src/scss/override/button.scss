@@ -1,5 +1,17 @@
-.ui.primary.button{
-    background-color: #F2791D;
+.ui.primary.button {
+    background-color: #F2A71E;
     color: #fff;
     border-radius: 8px;
+
+    &:hover {
+        background-color: #F2791D;
+    }
+
+    &:active {
+        background-color: #F2791D;
+    }
+    
+    &:focus {
+        background-color: #F2791D;
+    }
 }

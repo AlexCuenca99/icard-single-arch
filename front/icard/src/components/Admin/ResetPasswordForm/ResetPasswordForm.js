@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { useUser } from '../../../hooks';
-import { resetUserPasswordApi } from '../../../api/user';
 import { Button, Form } from 'semantic-ui-react';
 import './ResetPasswordForm.scss';
 

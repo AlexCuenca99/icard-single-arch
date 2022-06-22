@@ -30,7 +30,7 @@ export function TopNavbar() {
 				<NavInner className="container flexSpaceCenter">
 					<Link
 						className="pointer flexNullCenter"
-						to="/"
+						to="home"
 						smooth={true}
 					>
 						<Image src={LogoIcon} size="tiny" />

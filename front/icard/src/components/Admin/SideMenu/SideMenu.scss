@@ -1,8 +1,10 @@
 .side-menu-admin{
+    margin-top: 20px;
     .ui.menu{
         width: 250px !important;
         overflow: hidden;
-        padding-top: 4em;
+        // padding-top: 4em;
+        padding-top: 70px;
         z-index: 99 !important;
 
         i.icon {

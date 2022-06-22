@@ -1,11 +1,33 @@
 .top-menu-admin{
-
     &__logo {
         width: 250px;
-        background-color: #c4c4c4 !important;
+
+        > p{
+            margin-left: 20px;
+        }
+
+        &__auth {
+            font-weight: bold;
+            margin-left: 7px;
+
+            > h5 {
+                margin-bottom: -11px;
+            }
+            > span {
+                font-weight: normal;
+                font-size: small;
+                color: #ACACAC;
+                margin-top: -3px;
+            }
+        }
     }
 
     i.icon{
         margin: 0 !important;
+    }
+
+    .ui.avatar.image{
+        width: 2.7em !important;
+        height: 2.7em !important;
     }
 }

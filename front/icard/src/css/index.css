@@ -54,7 +54,7 @@ input:-webkit-autofill {
 body {
   background: #fff;
   color: #0B093B;
-  font-family: 'Khula', sans-serif;
+  font-family: 'Lato', sans-serif;
   overflow-x: hidden;
   font-size: 16px;
   font-weight: 400;
@@ -223,7 +223,7 @@ body {
 }
 /* COLORS */
 .darkColor {
-  color: #0B093B;
+  color: #332B3D;
 }
 .purpleColor {
   color: #7620FF;
@@ -248,7 +248,7 @@ body {
 }
 /* BACKGROUNDS */
 .darkBg {
-  background-color: #0B093B;
+  background-color: #332B3D;
 }
 .purpleBg {
   background-color: #7620FF;

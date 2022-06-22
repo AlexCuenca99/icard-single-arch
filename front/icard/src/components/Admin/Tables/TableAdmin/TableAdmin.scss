@@ -1,4 +1,5 @@
 .table-admin {
+    margin-top: 2em;
     position: relative;
     flex: 0 1 20%;
     display: flex;
@@ -6,30 +7,57 @@
     align-items: center;
 
     &:hover {
-        opacity: 0.7;
+        opacity: 0.8;
         cursor: pointer;
     }
 
+    // Notificación de pedidos de una mesa
     .ui.label {
         margin: 0;
-        font-size: 20px;
+        font-size: 16px;
         position: absolute;
-        top: 30px;
+        top: 42px;
+        background-color: #F2A71E;
+        color: #fff;
     }
 
     svg {
         height: 200px;
         width: 200px;
+        margin-bottom: -20px;
 
         &.occupied {
-            fill: #bb7900;
+            fill: #AD40BF;
         }
         &.pending {
-            fill: #0094e3;
+            fill: #1778B0;
         }
         &.pending-payment {
-            fill: #008000;
+            fill: #2A915F;
         }
     }
 
+    > p {
+        border-radius: 20px;
+        padding-left: 23px;
+        padding-right: 23px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: -20px;
+
+        &.occupied {
+            background-color: #E3B4EA;
+            color: #AD40BF;
+        }
+        &.pending {
+            background-color: #97D2F3;
+            color: #1778B0;
+        }
+        &.pending-payment {
+            background-color: #AED6C3;
+            color: #2A915F;
+        }
+    }
 }
