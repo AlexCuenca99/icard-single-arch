@@ -7,12 +7,11 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .managers import UserManager
 
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin, TimeStampedModel):
     username = models.CharField("Nombre de Usuario", max_length=15, unique=True)
     email = models.EmailField("Correo Electrónico", max_length=30, unique=True)
     first_name = models.CharField("Nombres", max_length=25, blank=True)
     last_name = models.CharField("Apellidos", max_length=25, blank=True)
-    business_name = models.CharField("Nombre de negocio", max_length=100, blank=True)
     is_staff = models.BooleanField("Administrador", default=False)
     is_active = models.BooleanField("Activo", default=True)
 
@@ -23,7 +22,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = "Usuarios"
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username", "business_name"]
+    REQUIRED_FIELDS = ["username"]
 
     # Crear nombres cortos
     def get_short_name(self):

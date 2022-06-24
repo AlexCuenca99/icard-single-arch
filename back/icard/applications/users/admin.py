@@ -7,7 +7,6 @@ from applications.users.models import User
 class UserAdmin(BaseUserAdmin):
     list_display = (
         "email",
-        "business_name",
         "first_name",
         "last_name",
         "is_active",
@@ -16,7 +15,6 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ("is_staff", "is_active")
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        ("Información del negocio", {"fields": ("business_name",)}),
         ("Información personal", {"fields": ("first_name", "last_name")}),
         ("Permissions", {"fields": ("is_staff", "is_active")}),
     )
@@ -27,10 +25,7 @@ class UserAdmin(BaseUserAdmin):
             None,
             {
                 "classes": ("wide",),
-                "fields": (
-                    "email",
-                    "business_name",
-                ),
+                "fields": ("email",),
             },
         ),
     )

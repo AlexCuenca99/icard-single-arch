@@ -35,6 +35,7 @@ LOCAL_APPS = (
     "applications.tables",
     "applications.orders",
     "applications.payments",
+    "applications.business",
 )
 
 THIRD_PARTY_APPS = (

@@ -74,4 +74,6 @@ urlpatterns = [
     # Endpoints de módulo de pagos
     path("", include("applications.payments.routers")),
     path("", include("applications.payments.urls")),
+    # Endpoints de módulo de negocio
+    path("", include("applications.business.routers")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

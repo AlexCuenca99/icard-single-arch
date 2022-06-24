@@ -21,7 +21,6 @@ class UserSerializer(serializers.ModelSerializer):
             "id",
             "username",
             "email",
-            "business_name",
             "first_name",
             "last_name",
             "is_active",
@@ -34,4 +33,4 @@ class UserSerializer(serializers.ModelSerializer):
 class UserCreateSerializer(UserCreateSerializerDjoser):
     class Meta(UserCreateSerializerDjoser.Meta):
         model = User
-        fields = ("id", "email", "business_name", "password")
+        fields = ("id", "email", "password")
