@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'semantic-ui-react';
+import { Image, Label, Icon } from 'semantic-ui-react';
 import classNames from 'classnames';
 import moment from 'moment';
 import 'moment/locale/es-us';
@@ -11,25 +11,44 @@ export function OrderHistoryItem(props) {
 	const { name, image } = order.food_data;
 
 	return (
-		<div
-			className={classNames('order-history-item', [
-				order.status === '1' ? 'delivered' : 'pending',
-			])}
-		>
+		<div className="order-history-item">
 			<div className="order-history-item__time">
-				<span>
+				<Label basic>
+					<Icon name="clock outline" />
 					Pedido {moment(order.created).startOf('second').fromNow()}
-				</span>
+				</Label>
 			</div>
-			<div className="order-history-item__food">
-				<Image src={image} />
+			<div
+				className={classNames('order-history-item__food', [
+					order.status === '1' ? 'delivered' : 'pending',
+				])}
+			>
+				<Image src={image} avatar />
+			</div>
+
+			<div className="order-history-item__details">
 				<p>{name}</p>
+
+				{order.status === ORDER_STATUS.PENDING ? (
+					<span
+						className={classNames({
+							pending: order.status === '0',
+							delivered: order.status === '1',
+						})}
+					>
+						En marcha
+					</span>
+				) : (
+					<span
+						className={classNames({
+							pending: order.status === '0',
+							delivered: order.status === '1',
+						})}
+					>
+						Entregado
+					</span>
+				)}
 			</div>
-			{order.status === ORDER_STATUS.PENDING ? (
-				<span>En marcha</span>
-			) : (
-				<span>Entregado</span>
-			)}
 		</div>
 	);
 }

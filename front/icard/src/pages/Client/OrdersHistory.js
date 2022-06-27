@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'semantic-ui-react';
-import { useParams } from 'react-router-dom';
+import Lottie from 'react-lottie';
+import { Button, Icon } from 'semantic-ui-react';
 import { map, size, forEach } from 'lodash';
-import { OrderHistoryItem } from '../../components/Client';
-import { ModalConfirm } from '../../components/Common';
+import { useParams, Link } from 'react-router-dom';
+// Peticiones
 import { useOrder, useTable, usePayment } from '../../hooks';
-import { getPaymentsApi } from '../../api/payment';
+// Componentes
+import { ModalConfirm } from '../../components/Common';
+import { OrderHistoryItem } from '../../components/Client';
+// Assets
+import animationData from '../../assets/lotties/select-table/store-front';
 
 export function OrdersHistory() {
 	const [idTable, setIdTable] = useState(null);
@@ -57,14 +61,46 @@ export function OrdersHistory() {
 		}
 		window.location.reload();
 	};
+
+	// Animación lottie
+	const defaultOptions = {
+		loop: true,
+		autoplay: true,
+		animationData: animationData,
+		rendererSettings: {
+			preserveAspectRatio: 'xMidYMid slice',
+		},
+	};
+
 	return (
-		<div>
+		<div style={{ paddingBottom: '50px' }}>
+			<h2 style={{ marginBottom: '10px' }}>Historial de pedidos</h2>
 			{loading ? (
 				<p>Cargando...</p>
+			) : size(orders) === 0 ? (
+				<div style={{ textAlign: 'center' }}>
+					<Lottie options={defaultOptions} height={200} width={200} />
+
+					<p style={{ marginTop: '5px', marginBottom: '40px' }}>
+						Aún no ha agregado pedidos
+					</p>
+
+					<Link to={`/cliente/${tableNumber}`}>
+						<Button animated="fade" primary>
+							<Button.Content visible>
+								Agregar alimentos
+							</Button.Content>
+							<Button.Content hidden>
+								<Icon name="shop" />
+							</Button.Content>
+						</Button>
+					</Link>
+				</div>
 			) : (
 				<>
 					{size(orders) > 0 && (
 						<Button
+							animated="fade"
 							primary
 							fluid
 							onClick={() =>
@@ -72,9 +108,14 @@ export function OrdersHistory() {
 								setShowTypePayment(true)
 							}
 						>
-							{size(accountIsRequested) > 0
-								? 'La cuenta ya ha sido pedida'
-								: 'Pedir la cuenta'}
+							<Button.Content visible>
+								{size(accountIsRequested) > 0
+									? 'La cuenta ya ha sido pedida'
+									: 'Pedir la cuenta'}
+							</Button.Content>
+							<Button.Content hidden>
+								<Icon name="shop" />
+							</Button.Content>
 						</Button>
 					)}
 					{map(orders, (order) => (
@@ -82,7 +123,6 @@ export function OrdersHistory() {
 					))}
 				</>
 			)}
-
 			<ModalConfirm
 				title="¿Pagar con tarjeta o efectivo?"
 				show={showTypePayment}

@@ -22,9 +22,7 @@ export function AdminLayout(props) {
 		matchPath(routeAdmin.path, pathname)
 	);
 
-	console.log(currentRoute);
 	// Devolver a pantalla de login
-	console.log(!auth);
 	if (!auth) {
 		switch (currentRoute.path) {
 			case '/admin':

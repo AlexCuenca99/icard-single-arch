@@ -14,7 +14,7 @@ export function TableCategories(props) {
 					<Table.HeaderCell></Table.HeaderCell>
 				</Table.Row>
 			</Table.Header>
-			<Table.Body>
+			<Table.Body style={{ justifyContent: 'center' }}>
 				{map(categories, (category, index) => (
 					<Table.Row key={index}>
 						<Table.Cell width={2}>

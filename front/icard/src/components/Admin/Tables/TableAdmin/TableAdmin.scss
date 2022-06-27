@@ -1,39 +1,45 @@
 .table-admin {
-    margin-top: 2em;
+    margin-top: 2.5em;
     position: relative;
     flex: 0 1 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
 
     &:hover {
         opacity: 0.8;
         cursor: pointer;
+
+        >p {
+            color: #949495;
+        }
     }
 
     // Notificación de pedidos de una mesa
-    .ui.label {
+    .ui.pointing.label {
         margin: 0;
-        font-size: 16px;
+        font-size: 13;
         position: absolute;
-        top: 42px;
-        background-color: #F2A71E;
-        color: #fff;
+        top: 5px;
     }
 
     svg {
         height: 200px;
         width: 200px;
         margin-bottom: -20px;
-
+        margin-top: -15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        
         &.occupied {
-            fill: #AD40BF;
+            fill: #E9E8EF;
         }
         &.pending {
-            fill: #1778B0;
+            fill: #E9E8EF;
         }
         &.pending-payment {
-            fill: #2A915F;
+            fill: #E9E8EF;
         }
     }
 

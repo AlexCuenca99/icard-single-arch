@@ -1,13 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import Lottie from 'react-lottie';
+import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 // Components
 import { Button as FullButton } from '../Buttons/Button';
 // Assets
-import HeaderImage from '../../../../assets/img/header-img.png';
-import QuotesIcon from '../../../../assets/svg/Quotes';
 import Dots from '../../../../assets/svg/Dots';
+import QuotesIcon from '../../../../assets/svg/Quotes';
+import HeaderImage from '../../../../assets/img/header-img.png';
 import animationData from '../../../../assets/lotties/header/featured_products';
 
 export function Header() {

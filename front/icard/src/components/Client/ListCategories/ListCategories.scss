@@ -5,18 +5,28 @@
 
     &__category {
         display: flex;
+        flex-direction:row;
         align-items: center;
         width: 100%;
-        border: 1px solid #000;
+        border: 2px solid #E9E8EF;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
         margin: 10px 0;
-    }
 
-    &:hover {
-        cursor: pointer;
-        opacity: 0.7;
+        &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        >span{
+            margin-left: 20px;
+            font-weight: bold;
+        }
     }
 
     .ui.image {
-        margin-right: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 }

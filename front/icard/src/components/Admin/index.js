@@ -1,5 +1,7 @@
 export * from './LoginForm';
 export * from './SignUpForm';
+export * from './BusinessSignUpForm';
+export * from './MultiStepSignupForm';
 export * from './ResetPasswordForm';
 export * from './ResetPasswordConfirmForm';
 export * from './ActivateForm';

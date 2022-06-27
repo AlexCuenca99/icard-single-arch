@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { size } from 'lodash';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { getOrdersByTableApi } from '../../../../api/orders';
+import { Label, Icon } from 'semantic-ui-react';
 import { ORDER_STATUS } from '../../../../utils/constants';
-import { Label } from 'semantic-ui-react';
+// Peticiones
+import { getOrdersByTableApi } from '../../../../api/orders';
+import { usePayment } from '../../../../hooks';
+// Assets
 import { ReactComponent as IconTable } from '../../../../assets/table.svg';
 import { ReactComponent as IconTable2 } from '../../../../assets/svg/table-2.svg';
-import { usePayment } from '../../../../hooks';
 import './TableAdmin.scss';
 
 export function TableAdmin(props) {
@@ -30,6 +32,7 @@ export function TableAdmin(props) {
 		})();
 	}, [refetch]);
 
+	// Extraer el pago de una mesa que ha pedido la cuenta
 	useEffect(() => {
 		(async () => {
 			const response = await getPaymentByTable(table.id);
@@ -53,13 +56,20 @@ export function TableAdmin(props) {
 
 	return (
 		<Link className="table-admin" to={`/admin/mesa/${table.id}`}>
-			{size(orders) > 0 ? <Label circular>{size(orders)}</Label> : null}
+			{size(orders) > 0 ? (
+				<Label basic pointing="below">
+					<Icon name="utensils" />
+					<Label.Detail>{size(orders)}</Label.Detail>
+				</Label>
+			) : null}
 
 			{pendingPayment && (
-				<Label circular color="yellow">
-					Cuenta
+				<Label basic pointing="below">
+					<Icon name="dollar sign" />
+					<Label.Detail>Cuenta</Label.Detail>
 				</Label>
 			)}
+
 			<p>Mesa {table.number}</p>
 			<IconTable
 				className={classnames({
@@ -76,7 +86,7 @@ export function TableAdmin(props) {
 				})}
 			>
 				{size(orders) > 0
-					? 'Pendiente'
+					? 'Órden Pendiente'
 					: pendingPayment
 					? 'Cuenta Pendiente'
 					: tableOccupied

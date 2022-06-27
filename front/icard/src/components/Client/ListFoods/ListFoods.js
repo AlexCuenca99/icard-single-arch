@@ -19,10 +19,22 @@ export function ListFoods(props) {
 				<div key={food.id} className="list-foods-client__food">
 					<div>
 						<Image src={food.image} />
-						<span>{food.name}</span>
+						<div>
+							<span>{food.name}</span>
+							<p className="list-foods-client__food__description">
+								{food.description}
+							</p>
+							<p className="list-foods-client__food__price">
+								Precio {food.price} $
+							</p>
+						</div>
 					</div>
-					<Button primary icon onClick={() => addFoodToCart(food)}>
-						<Icon name="add" />
+
+					<Button animated="fade" onClick={() => addFoodToCart(food)}>
+						<Button.Content hidden>Añadir</Button.Content>
+						<Button.Content visible>
+							<Icon name="add" />
+						</Button.Content>
 					</Button>
 				</div>
 			))}

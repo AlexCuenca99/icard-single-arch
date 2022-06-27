@@ -1,21 +1,49 @@
 .list-foods-cart {
     &__food {
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid #000;
-        padding: 10px 0;
+        align-items: center;
+        border: 2px solid #E9E8EF;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+        margin-bottom: 10px;
 
-        > div {
-            width: 180px;
-            
-            .ui.image {
-                margin-right: 20px !important;
+        &__resume {
+            &__image {
+                border-right: 2px solid #E9E8EF;
+                margin-top: -10px;
+                margin-bottom: -10px;
+                margin-right: 10px;
+
+                .ui.image {
+                    margin-right: 10px;
+                    width: 120px !important;
+                    height: 100px !important;
+                    border-radius: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            display: flex;
+            flex-direction: row;
+            align-items: left;
+        
+            &__data {
+                > span {
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+
+                > p{
+                    font-size: 13px;
+                    margin-top: 10px;
+                }
             }
         }
-    }
 
-    .ui.button {
-        margin-top: 20px;
+        .ui.button {
+           text-align: center;
+        }
     }
 }

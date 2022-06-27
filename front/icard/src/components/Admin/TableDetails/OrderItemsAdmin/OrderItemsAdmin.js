@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image } from 'semantic-ui-react';
+import { Button, Image, Label, Icon } from 'semantic-ui-react';
 import classNames from 'classnames';
 import moment from 'moment';
 import 'moment/locale/es-us';
@@ -17,20 +17,35 @@ export function OrderItemsAdmin(props) {
 		onRefetchOrders();
 	};
 	return (
-		<div
-			className={classNames('order-item-admin', {
-				[order.status === '0' ? 'pending' : 'delivered']: true,
-			})}
-		>
+		<div className="order-item-admin">
 			<div className="order-item-admin__time">
-				<span>{moment(order.created).format('HH:mm')}</span> {' - '}
-				<span>
-					{moment(order.created).startOf('seconds').fromNow()}
-				</span>
+				<Label basic>
+					<Icon name="clock outline" />
+					{moment(order.created).format('HH:mm')}
+					<Label.Detail style={{ fontWeight: 'normal' }}>
+						{moment(order.created).startOf('seconds').fromNow()}
+					</Label.Detail>
+				</Label>
 			</div>
 			<div className="order-item-admin__food">
-				<Image src={image} />
-				<p>{name}</p>
+				<div
+					className={classNames('order-item-admin__food', {
+						[order.status === '0' ? 'pending' : 'delivered']: true,
+					})}
+				>
+					<Image src={image} avatar />
+				</div>
+				<div className="order-item-admin__food__details">
+					<p>{name}</p>
+					<span
+						className={classNames({
+							pending: order.status === '0',
+							delivered: order.status === '1',
+						})}
+					>
+						{order.status === '0' ? 'Pendiente' : 'Entregado'}
+					</span>
+				</div>
 			</div>
 			{order.status === ORDER_STATUS.PENDING && (
 				<Button primary onClick={onCheckDeliveredOrder}>

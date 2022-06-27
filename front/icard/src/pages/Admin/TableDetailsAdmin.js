@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Loader } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { forEach, size } from 'lodash';
+// Peticiones
+import { useOrder, useTable, usePayment } from '../../hooks';
+// Componentes
 import { HeaderPage, AddOrderForm } from '../../components/Admin';
 import { ModalBasic } from '../../components/Common';
 import {
 	ListOrdersAdmin,
 	PaymentDetails,
 } from '../../components/Admin/TableDetails';
-import { useOrder, useTable, usePayment } from '../../hooks';
 
 export function TableDetailsAdmin() {
 	const [refetchOrders, setRefetchOrders] = useState(false);
@@ -73,11 +75,11 @@ export function TableDetailsAdmin() {
 			onRefetchOrders();
 		}
 	};
-
+	console.log(!paymentData);
 	return (
 		<>
 			<HeaderPage
-				title={`Mesa ° ${table?.number || ''}`}
+				title={`Mesa ${table?.number || ''}`}
 				btnTitle={paymentData ? 'Ver cuenta' : 'Añadir pedido'}
 				btnClick={openCloseModal}
 				btnTitleTwo={!paymentData ? 'Generar cuenta' : null}

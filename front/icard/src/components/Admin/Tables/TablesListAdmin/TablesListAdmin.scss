@@ -1,3 +1,8 @@
+.tables-list-legend {
+    margin-top: 40px;
+    text-align: center;
+}
+
 .tables-list-admin {
     display: flex;
     flex-wrap: wrap;
@@ -10,10 +15,11 @@
     }
 
     &__reload-toggle {
+        display: flex;
+        align-items: center;
         position: absolute !important;
         top: 38px;
         right: 150px;
-        align-items: center;
 
         span {
             margin-right: 20px;

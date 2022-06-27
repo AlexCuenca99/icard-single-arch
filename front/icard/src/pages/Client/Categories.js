@@ -11,7 +11,7 @@ export function Categories() {
 
 	return (
 		<div>
-			<h3>Categories</h3>
+			<h2>Categorías</h2>
 			{loading ? (
 				<p>Cargando</p>
 			) : (

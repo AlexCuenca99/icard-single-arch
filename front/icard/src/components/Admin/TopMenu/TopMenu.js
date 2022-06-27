@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Icon, Menu, Popup, Item } from 'semantic-ui-react';
+import { Image, Icon, Menu, Popup } from 'semantic-ui-react';
 // Componentes
 import { useAuth } from '../../../hooks';
 // Assets
@@ -35,13 +35,16 @@ export function TopMenu() {
 						</span>
 					</div>
 				</Menu.Item>
-				<Menu.Item onClick={logout}>
-					<Popup
-						trigger={<Icon name="sign-out" color="red" circular />}
-						content="Cerrar sesión"
-						position="bottom left"
-					/>
-				</Menu.Item>
+
+				<Popup
+					trigger={
+						<Menu.Item onClick={logout}>
+							<Icon name="sign-out" color="red" circular />
+						</Menu.Item>
+					}
+					content="Cerrar sesión"
+					position="bottom left"
+				/>
 			</Menu.Menu>
 		</Menu>
 	);

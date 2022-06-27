@@ -1,42 +1,71 @@
 .order-item-admin {
     position: relative;
-    border: 1px solid #000;
+    border: 2px solid #E9E8EF;
+    border-radius: 10px;
     padding: 20px;
-    margin: 50px 0;
+    margin: 40px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    &.pending {
-        background-color: rgb(255, 220, 155);
-    }
-
-    &.delivered {
-        background-color: rgb(183, 255, 115);
-    }
 
     &__time {
         position: absolute;
         top: -14px;
         right: 10px;
-        background-color: #fff;
-        padding: 5px 20px;
-        border: 1px solid #000;
+
+        .ui.basic.label {
+            font-size: 15px;
+            border: 2px solid #E9E8EF;
+        }
     }
 
     &__food {
         display: flex;
         align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: -10px;
+        margin-left: -10px;
+        margin-bottom: -10px;
 
-        .ui.image {
-            width: 90px;
-            margin-right: 20px;
+        &.pending {
+            background-color: #FFECD0;
+        }
+    
+        &.delivered {
+            background-color: #DCFFEC;
         }
 
-        p {
-            margin: 0;
-            font-weight: bold;
-            font-size: 18px;
+        .ui.image {
+            width: 70px !important;
+            height: 70px !important;
+        }
+
+        &__details {
+            margin-left: 20px;
+            text-align: center;
+
+            p {
+                margin-bottom: 10px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        
+            span {
+                border-radius: 20px;
+                padding: 5px 20px;
+                font-weight: bold;
+                font-size: 12px;
+                
+                &.delivered {
+                    background-color: #DCFFEC;
+                    color: #00A84C;
+                }
+                &.pending {
+                    background-color: #FFECD0;
+                    color: #FF9900;
+                }
+            }
         }
     }
 }

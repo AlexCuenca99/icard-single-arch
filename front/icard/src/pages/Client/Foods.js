@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
+// Peticiones
 import { useFood } from '../../hooks';
+// Componentes
 import { ListFoods } from '../../components/Client';
 
 export function Foods() {
@@ -11,11 +14,15 @@ export function Foods() {
 		getFoodsByCategory(idCategory);
 	}, [idCategory]);
 
-	console.log(foods);
-
 	return (
 		<div>
-			<Link to={`/cliente/${tableNumber}`}>Volver a categorías</Link>
+			<Link
+				to={`/cliente/${tableNumber}`}
+				style={{ fontSize: '14px', textDecoration: 'underline' }}
+			>
+				<Icon name="angle left" />
+				Volver a categorías
+			</Link>
 			{loading ? <p>loading</p> : <ListFoods foods={foods} />}
 		</div>
 	);

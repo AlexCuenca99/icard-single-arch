@@ -1,42 +1,74 @@
 .order-history-item {
     position: relative;
-    border: 1px solid#000;
-    padding: 20px;
-    margin: 50px 0;
+    border: 2px solid#E9E8EF;
+    border-radius: 10px;
+    padding: 20px 10px 20px 20px;
+    margin: 35px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    &.pending {
-        background-color: rgb(255, 220, 155);
-    }
-
-    &.delivered {
-        background-color: rgb(183, 255, 115);
-    }
     
     &__time {
         position: absolute;
-        top: -14px;
+        top: -18px;
         right: 10px;
-        background-color: #fff;
-        padding: 5px 20px;
-        border: 1px solid #000;
+
+        .ui.basic.label {
+            font-weight: normal;
+            font-size: 13px;
+            border: 2px solid #E9E8EF;
+        }
     }
 
     &__food {
-        display: flex;
-        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        margin-top: -10px;
+        margin-left: -10px;
+        margin-bottom: -10px;
 
-        .ui.image {
-            width: 80px;
-            margin-right: 20px;
+        &.pending {
+            background-color: #FFECD0;
         }
+    
+        &.delivered {
+            background-color: #DCFFEC;
+        }
+
+        .ui.avatar.image {
+            width: 3em !important;
+            height: 3em !important;
+        }
+    }
+
+    &__details {
+        margin-left: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
 
         p {
             margin: 0;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 14px;
+        }
+    
+        span {
+            border-radius: 20px;
+            padding: 5px 20px;
+            font-weight: bold;
+            font-size: 13px;
+            
+            &.delivered {
+                background-color: #DCFFEC;
+                color: #00A84C;
+            }
+
+            &.pending {
+                background-color: #FFECD0;
+                color: #FF9900;
+            }
         }
     }
 }

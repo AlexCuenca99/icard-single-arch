@@ -105,6 +105,17 @@ export function useTable() {
 		}
 	};
 
+	// Función para determinar el ID de una mesa por su número
+	const getTableIDByNumber = async (tableNumber) => {
+		try {
+			const response = await getTableByNumberApi(tableNumber);
+			if (size(response) === 0) throw Error();
+
+			return response[0].id;
+		} catch (error) {
+			setError(error);
+		}
+	};
 	return {
 		loading,
 		error,
@@ -118,5 +129,6 @@ export function useTable() {
 		getTable,
 		getTableByNumber,
 		getTableByNumberCreateOrder,
+		getTableIDByNumber,
 	};
 }

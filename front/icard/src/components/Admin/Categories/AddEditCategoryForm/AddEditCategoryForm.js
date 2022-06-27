@@ -42,6 +42,7 @@ export function AddEditCategoryForm(props) {
 		multiple: false,
 		onDrop,
 	});
+
 	return (
 		<Form className="add-edit-category-form" onSubmit={formik.handleSubmit}>
 			<Form.Input
